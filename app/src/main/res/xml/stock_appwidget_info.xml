@@ -1,7 +1,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="190dp"
     android:minHeight="190dp"
-    android:updatePeriodMillis="1000"
+    android:updatePeriodMillis="0"
     android:previewImage="@mipmap/ic_launcher"
     android:initialLayout="@layout/main_appwidget"
     android:resizeMode="horizontal|vertical"

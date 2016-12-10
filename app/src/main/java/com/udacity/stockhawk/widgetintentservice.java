@@ -85,6 +85,9 @@ public class widgetintentservice extends RemoteViewsService {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                     setRemoteContentDescription(views, symbol);
                 }
+                final Intent fillInIntent = new Intent();
+                fillInIntent.putExtra("symbol",symbol);
+                views.setOnClickFillInIntent(R.id.list_item,fillInIntent);
                 views.setTextViewText(R.id.symbol, symbol);
                 views.setTextViewText(R.id.price, price);
                 views.setTextViewText(R.id.change, perchange);
