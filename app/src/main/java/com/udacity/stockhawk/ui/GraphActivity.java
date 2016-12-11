@@ -31,7 +31,7 @@ public class GraphActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
-        symbol=getIntent().getStringExtra("symbol");
+        symbol=getIntent().getStringExtra(getString(R.string.str_param));
         List<Entry> yvalues=new ArrayList<>();
         List<String> xvals=new ArrayList<>();
         chart= (LineChart) findViewById(R.id.graph);
@@ -62,7 +62,7 @@ public class GraphActivity extends AppCompatActivity {
 
 
         TextView  xAxisName = new TextView(this);
-        xAxisName.setText("Days since today");
+        xAxisName.setText(R.string.labelxaxis);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
         params.setMargins(0, 0, 0, 20);
@@ -84,7 +84,7 @@ public class GraphActivity extends AppCompatActivity {
 
 
 
-        LineDataSet dataSet=new LineDataSet(yvalues,"point");
+        LineDataSet dataSet=new LineDataSet(yvalues,getString(R.string.xaxisname));
         LineData data=new LineData(xvals,dataSet);
         chart.setData(data);
 

@@ -38,12 +38,14 @@ public class stockAppWidgetProvider extends AppWidgetProvider{
                     .addNextIntentWithParentStack(clickintent)
                     .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setPendingIntentTemplate(R.id.lvquotes,clickPendingIntentTemplate);
+            views.setEmptyView(R.id.lvquotes,R.id.wiget_empty);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                 setRemoteAdapter(context, views);
             } else {
                 setRemoteAdapterV11(context, views);
             }
+
 
             // Tell the AppWidgetManager to perform an update on the current app widget
             appWidgetManager.updateAppWidget(appWidgetId, views);

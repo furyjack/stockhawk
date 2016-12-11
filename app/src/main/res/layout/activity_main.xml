@@ -16,6 +16,8 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin" />
 
@@ -33,6 +35,7 @@
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:fabSize="normal"
+        android:contentDescription="@string/add_stocks"
         app:pressedTranslationZ="12dp" />
 
     <TextView

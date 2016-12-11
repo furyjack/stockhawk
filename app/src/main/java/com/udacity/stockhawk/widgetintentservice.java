@@ -11,6 +11,7 @@ import android.widget.RemoteViewsService;
 
 import com.udacity.stockhawk.data.Contract;
 
+import static com.udacity.stockhawk.R.id.change;
 import static com.udacity.stockhawk.data.Contract.Quote.COLUMN_PERCENTAGE_CHANGE;
 import static com.udacity.stockhawk.data.Contract.Quote.COLUMN_PRICE;
 import static com.udacity.stockhawk.data.Contract.Quote.COLUMN_SYMBOL;
@@ -81,16 +82,24 @@ public class widgetintentservice extends RemoteViewsService {
                 String price = data.getString(data.getColumnIndex(Contract.Quote.COLUMN_PRICE));
                 String perchange = data.getString(data.getColumnIndex(Contract.Quote.COLUMN_PERCENTAGE_CHANGE));
 
+                if (Float.parseFloat(perchange) > 0) {
+                   views.setInt(R.id.change,getString(R.string.methodnameback),R.drawable.percent_change_pill_green);
+                } else {
+                    views.setInt(R.id.change,getString(R.string.methodnameback),R.drawable.percent_change_pill_red);
+                }
+
+
+
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                     setRemoteContentDescription(views, symbol);
                 }
                 final Intent fillInIntent = new Intent();
-                fillInIntent.putExtra("symbol",symbol);
+                fillInIntent.putExtra(getString(R.string.str_param),symbol);
                 views.setOnClickFillInIntent(R.id.list_item,fillInIntent);
                 views.setTextViewText(R.id.symbol, symbol);
                 views.setTextViewText(R.id.price, price);
-                views.setTextViewText(R.id.change, perchange);
+                views.setTextViewText(change, perchange);
 
 
 

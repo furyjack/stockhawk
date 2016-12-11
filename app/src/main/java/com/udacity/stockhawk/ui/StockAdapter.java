@@ -70,7 +70,7 @@ class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
             @Override
             public void onClick(View view) {
                 cursor.moveToPosition(position);
-                context.startActivity(new Intent(context,GraphActivity.class).putExtra("symbol",cursor.getString(Contract.Quote.POSITION_SYMBOL)));
+                context.startActivity(new Intent(context,GraphActivity.class).putExtra(context.getString(R.string.str_param),cursor.getString(Contract.Quote.POSITION_SYMBOL)));
             }
         });
 
